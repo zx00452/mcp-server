@@ -19,4 +19,6 @@ def query_app_usage(start: str, end: str) -> str:
     return resp.text
 
 if __name__ == "__main__":
-    mcp.run(transport="sse", port=int(os.environ.get("PORT", 8001)))
+    # 必须加 host="0.0.0.0"，Railway 才能把外网请求转发进来！
+    # 你的代码日志显示是用 SSE，所以 transport 用 "sse" 是正确的。
+    mcp.run(transport="sse", host="0.0.0.0", port=int(os.environ.get("PORT", 8001)))
