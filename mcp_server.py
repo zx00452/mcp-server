@@ -19,4 +19,4 @@ def query_app_usage(start: str, end: str) -> str:
     return resp.text
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", port=int(os.environ.get("PORT", 8001)))
+    mcp.run(transport="sse", port=int(os.environ.get("PORT", 8001)))
